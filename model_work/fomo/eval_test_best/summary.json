@@ -1,0 +1,12 @@
+{
+  "model": "/home/Shrivaikunth/Downloads/Nuvoton_Model/keras_fomo/runs/fomo/best.keras",
+  "split": "test",
+  "threshold": 0.5,
+  "images": 1346,
+  "count_mae": 0.44650817236255574,
+  "count_rmse": 1.0602222985944267,
+  "count_bias": -0.3707280832095097,
+  "empty_false_positive_rate": 0.030303030303030304,
+  "empty_images": 66,
+  "csv": "/home/Shrivaikunth/Downloads/Nuvoton_Model/keras_fomo/runs/fomo/eval_test_best/per_image.csv"
+}

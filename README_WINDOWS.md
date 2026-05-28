@@ -17,8 +17,15 @@ windows_deployment/
 │   └── ... (all supporting infra files)
 ├── sd_card/
 │   └── model_int8_vela.tflite    <-- copy this file to the SD card root
-└── compile_vela.bat              <-- only needed if you retrain
+├── compile_vela.bat              <-- only needed if you retrain
+└── model_work/                   <-- training results, metrics, plots
+    ├── MODEL_WORK.md             <-- full write-up of both models
+    ├── fomo/                     <-- FOMO config, sweep, test eval, int8 tflite
+    └── yolo/                     <-- YOLOv8n training curves, weights, plots
 ```
+
+For the training results, accuracy metrics, and inference outputs of
+both models, read **`model_work/MODEL_WORK.md`**.
 
 ## What you need to install on Windows
 
