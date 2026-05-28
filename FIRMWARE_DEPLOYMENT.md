@@ -1,13 +1,17 @@
-# FOMO Person Counter -- Windows Deployment Bundle
+# Firmware deployment (Windows + Keil + Nu-Link)
 
-This folder contains **everything you need on Windows** to build, flash,
-and run the FOMO person-counting firmware on the Nuvoton M55M1 board.
+End-to-end guide for building, flashing, and running the FOMO
+person-counting firmware on the Nuvoton M55M1 board.
 
-## What is in this folder
+This document is the **deployment** half of the repo. For the model
+training/eval side see [`README.md`](README.md) and
+[`model_work/MODEL_WORK.md`](model_work/MODEL_WORK.md).
+
+## What you need from this repo
 
 ```
-windows_deployment/
-├── README_WINDOWS.md             <-- you are here
+.
+├── FIRMWARE_DEPLOYMENT.md        <-- you are here
 ├── ObjectDetection_FOMO/         <-- the firmware project (drop into BSP)
 │   ├── KEIL/ObjectDetection.uvprojx     <-- open this in Keil uVision5
 │   ├── main.cpp
