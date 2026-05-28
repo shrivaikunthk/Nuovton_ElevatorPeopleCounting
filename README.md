@@ -11,8 +11,6 @@ M55M1 + Ethos-U55-256 NPU** overhead person-counting application.
   proof of dataset quality and as a fallback if the use case ever
   changes to per-person localisation.
 
-For the headline numbers and full metrics, jump straight to
-[`model_work/MODEL_WORK.md`](model_work/MODEL_WORK.md).
 
 ## Repo layout
 
@@ -170,10 +168,6 @@ gcc -std=c11 -Wall -Wextra \
 ```
 
 ## Deployment
-
-The trained model already runs on the board. See
-[`FIRMWARE_DEPLOYMENT.md`](FIRMWARE_DEPLOYMENT.md) for the full setup
-(Keil project, SD card prep, flashing). TL;DR:
 
 ```text
 1. Drop ObjectDetection_FOMO/ into the Nuvoton BSP at

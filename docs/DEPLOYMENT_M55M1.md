@@ -193,30 +193,8 @@ wrong -- most likely the `pixel - 128` line was deleted or the camera
 output is YUV instead of RGB888. Check `ImageSensor_Config(eIMAGE_FMT_RGB565,...)`
 and `imlib_nvt_scale(... PIXFORMAT_RGB888)`.
 
----
 
-## 6. Should I switch to YOLO instead?
-
-**No.** Three reasons:
-
-1. **FOMO is ~30× cheaper than YOLOv8n** for the same use case (counting,
-   not localising). Our model: 19.6 ms / inference, 100% NPU. YOLOv8n on
-   the same chip: ~120 ms / inference, with custom-op CPU fallback.
-2. We already trained, validated, and quantized FOMO. Test MAE = 0.42
-   counted people, empty-image FP rate = 3 %. That is excellent.
-3. Switching to YOLO would require label-format conversion, a fresh
-   training cycle (~ days on CPU), and a more complex post-processing
-   stack (NMS over thousands of anchor boxes vs. 36 grid cells). FOMO's
-   3 × 3 local-max post-processing is a few hundred lines of C; YOLO's is
-   a couple thousand and has its own quantization gotchas.
-
-If a customer needs **bounding boxes** (not just counts) you would
-indeed need YOLO — but the elevator-counter spec is a count, so FOMO
-wins on every axis here.
-
----
-
-## 7. What is in this repo (deployment-only files)
+## 6. What is in this repo (deployment-only files)
 
 | Path                                                          | Purpose                                                    |
 | ------------------------------------------------------------- | ---------------------------------------------------------- |
@@ -228,27 +206,3 @@ wins on every axis here.
 | `keras_fomo/runs/fomo/vela/model_int8_vela.tflite`            | NPU-ready model (2.5 MB)                                   |
 | `keras_fomo/runs/fomo/vela/model_int8_vela.{h,cc}`            | Embedded C array (drop into firmware project)              |
 
----
-
-## 8. Hand-off checklist
-
-- [x] Trained INT8 TFLite model: `keras_fomo/runs/fomo/model_int8.tflite`
-- [x] Vela-compiled model (100% NPU, 19.6 ms): `keras_fomo/runs/fomo/vela/model_int8_vela.tflite`
-- [x] Post-processing module: `firmware/fomo_postprocess/` (host-side reference)
-- [x] Host unit tests passing
-- [x] Nuvoton `ML_M55M1_SampleCode` cloned at `ML_M55M1_SampleCode-master/`
-- [x] Adapted firmware sample at `ML_M55M1_SampleCode-master/M55M1BSP-3.01.003/SampleCode/NuEdgeWise/ObjectDetection_FOMO/`
-- [ ] Run `python install.py` in `ML_M55M1_SampleCode-master/` to expand the BSP
-- [ ] Open the KEIL project, build, flash
-- [ ] Copy `model_int8_vela.tflite` to SD card, boot, watch serial
-
-If anything goes wrong on-device, send me the serial log. Most likely
-failure modes:
-
-1. Wrong input pre-processing (`pixel - 128` line deleted).
-2. Wrong output dequant (using `(float)int8` instead of
-   `tensor->params.scale * (q - zero_point)`).
-3. Tensor arena too small -- TFLM prints a clean error and we just bump
-   `ACTIVATION_BUF_SZ` in the KEIL project's preprocessor defines.
-4. SD card not detected -- verify with the unmodified YOLOv8 sample
-   first; if its model loads, ours will too.

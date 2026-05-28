@@ -57,4 +57,3 @@ Common options:
 
 The YOLO evaluator writes `summary.json`, `per_image_counts.csv`, plots, and worst-case overlays.
 
-Next: [Troubleshooting](TROUBLESHOOTING.md)
