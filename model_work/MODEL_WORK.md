@@ -6,10 +6,10 @@ trained on the same dataset (overhead-person-detection, 192 x 192).
 
 ## TL;DR
 
-| Model     | Task                | Inference time on M55M1 | Headline metric                  | Deployable? |
-| --------- | ------------------- | ----------------------- | -------------------------------- | ----------- |
-| **FOMO**  | grid heatmap -> count | **~19.6 ms (100% NPU)** | test MAE = **0.42 people**       | yes -- shipping on board |
-| **YOLOv8n** (ReLU6 variant) | bounding boxes | ~120 ms (CPU fallback for some ops) | val mAP50 = **0.978**, mAP50-95 = 0.686 | trained, not deployed |
+| Model     | Task                | Inference time on M55M1 | Headline metric                  
+| --------- | ------------------- | ----------------------- | -------------------------------- 
+| **FOMO**  | grid heatmap -> count | **~19.6 ms (100% NPU)** | test MAE = **0.42 people**      
+| **YOLOv8n** (ReLU6 variant) | bounding boxes | ~120 ms (CPU fallback for some ops) | val mAP50 = **0.978**, mAP50-95 = 0.686
 
 **Conclusion**: FOMO is the production model. It is ~6x faster on the
 NPU, ~10x smaller, and the use case (a count, not bounding boxes)
@@ -178,8 +178,7 @@ workflow to:
 3. Drop into the `ObjectDetection_YOLOv8n` firmware sample.
 
 Intermediate epoch checkpoints (epoch100.pt .. epoch225.pt) are
-**not** in this repo but are kept locally at `best_yolo_run/weights/`.
-If you ever want to fine-tune, start from `best.pt`.
+**not** in this repo but are kept locally can provide if needed.
 
 ---
 
