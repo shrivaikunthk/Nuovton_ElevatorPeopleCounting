@@ -3,9 +3,7 @@
 End-to-end guide for building, flashing, and running the FOMO
 person-counting firmware on the Nuvoton M55M1 board.
 
-This document is the **deployment** half of the repo. For the model
-training/eval side see [`README.md`](README.md) and
-[`model_work/MODEL_WORK.md`](model_work/MODEL_WORK.md).
+This document is the **deployment**.
 
 ## What you need from this repo
 
@@ -33,12 +31,12 @@ both models, read **`model_work/MODEL_WORK.md`**.
 
 ## What you need to install on Windows
 
-| Tool                              | Purpose                              | Free? | Required? |
-| --------------------------------- | ------------------------------------ | ----- | --------- |
-| **Keil uVision5 MDK-Arm**         | Builds the firmware                  | Free Community edition or Nuvoton-keyed full version | yes |
-| **NuMicro ICP Programming Tool**  | Flashes via Nu-Link                  | Yes (Nuvoton website) | yes |
-| **Python 3.10+**                  | Only if you retrain models           | Yes | no |
-| **VS Code**                       | Comfy editor for .cpp/.hpp files     | Yes | optional |
+| Tool                              | Purpose                              
+| --------------------------------- | ------------------------------------ 
+| **Keil uVision5 MDK-Arm**         | Builds the firmware                  
+| **NuMicro ICP Programming Tool**  | Flashes via Nu-Link                  
+| **Python 3.10+**                  | Only if you retrain models           
+| **VS Code**                       | Comfy editor for .cpp/.hpp files    
 
 You do **not** need:
 - Vivado / Vitis (those are Xilinx FPGA tools, irrelevant to ARM MCUs)
@@ -215,16 +213,6 @@ REM    NO RE-FLASH NEEDED -- the firmware loads the new model at boot.
 That's it -- the firmware itself does not need to be rebuilt unless you
 change post-processing logic.
 
-## What if I want to use VS Code instead of Keil?
-
-You can edit the source files in VS Code, but **building requires an
-ARM compiler**. The options are:
-
-1. **Recommended**: edit in VS Code, build in Keil (just have both open).
-2. **Advanced**: set up a `gcc-arm-none-eabi` toolchain + CMake. The
-   Nuvoton BSP ships with Keil-only project files, so you would have to
-   author your own CMakeLists.txt. Not recommended unless you really
-   dislike Keil.
 
 ## Confirmed working
 
