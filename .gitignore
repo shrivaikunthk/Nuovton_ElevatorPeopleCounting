@@ -39,6 +39,8 @@ dist/
 *.onnx
 *.engine
 *.tflite
+!windows_deployment/sd_card/yolov8_merged_int8.tflite
+!windows_deployment/sd_card/fomo_merged_int8.tflite
 *.npy
 
 # Native binaries and generated build outputs
