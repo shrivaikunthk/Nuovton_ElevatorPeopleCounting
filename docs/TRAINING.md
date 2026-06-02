@@ -154,4 +154,3 @@ Expected outputs:
 - `runs/baseline_frcnn/last.pt`
 - `runs/baseline_frcnn/best.pt`
 
-Next: [Evaluation](EVALUATION.md)

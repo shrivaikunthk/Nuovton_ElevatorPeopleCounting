@@ -97,4 +97,3 @@ python scripts/prepare_nuvoton_yolo_dataset.py --force
 
 This creates `prepared_datasets/nuvoton_people_v1/` with `dataset.yaml`, `prep_summary.json`, and train/val/test folders.
 
-Next: [Training](TRAINING.md)

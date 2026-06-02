@@ -1,0 +1,16 @@
+{
+  "dataset_root": "overhead-person-detection",
+  "manifest": null,
+  "output_dir": "keras_fomo/runs/fomo",
+  "epochs": 30,
+  "batch_size": 32,
+  "lr": 0.001,
+  "image_size": 192,
+  "grid_size": 6,
+  "alpha": 1.0,
+  "no_pretrained": false,
+  "no_augment": false,
+  "seed": 42,
+  "int8_rep_samples": 128,
+  "no_tflite": false
+}
