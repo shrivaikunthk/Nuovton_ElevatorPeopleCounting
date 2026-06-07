@@ -1,0 +1,66 @@
+# Keil build outputs (generated locally on Windows, never commit)
+**/Objects/
+**/Listings/
+**/RTE/
+**/DebugConfig/
+*.bak
+*.dep
+*.crf
+*.d
+*.o
+*.lst
+*.htm
+*.map
+*.axf
+*.bin
+*.hex
+*.iex
+*.lnp
+*.scvd
+
+# Keil per-user state
+*.uvguix.*
+*.uvopt
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Datasets (fetch from source -- do not commit)
+overhead-person-detection/
+prepared_datasets/
+*.zip
+
+# Training run outputs (regenerate locally)
+runs/
+keras_fomo/runs/
+wandb/
+*.keras
+*.h5
+*.pt
+!model_work/yolo/weights/best.pt          # committed reference checkpoint
+
+# TFLite intermediates (we ship only the deployable vela'd one)
+*.tflite
+!sd_card/model_int8_vela.tflite           # deployable
+!ObjectDetection_FOMO/Model/model_int8_vela.tflite  # firmware embedded
+!model_work/fomo/model_int8.tflite        # documented int8 baseline
+!sd_card/yolov8_merged_int8.tflite         # merged-dataset YOLOv8 int8
+!sd_card/vela/yolov8_merged_int8_vela.tflite  # merged-dataset YOLOv8 NPU-ready
+!sd_card/fomo_merged_int8.tflite           # merged-dataset FOMO int8
