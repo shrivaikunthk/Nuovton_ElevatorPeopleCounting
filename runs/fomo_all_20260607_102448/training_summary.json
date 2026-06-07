@@ -1,0 +1,47 @@
+{
+  "timestamp": "20260607_102448",
+  "config": {
+    "model_size": "s",
+    "epochs": 100,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "patience": 20,
+    "device": "cuda"
+  },
+  "datasets": {
+    "overhead": {
+      "status": "skipped",
+      "reason": "data.yaml not found"
+    },
+    "passenger": {
+      "status": "completed",
+      "run_name": "passenger_s",
+      "output_dir": "runs/fomo_all_20260607_102448/passenger_s",
+      "metrics_saved": true
+    },
+    "scene-1": {
+      "status": "completed",
+      "run_name": "scene-1_s",
+      "output_dir": "runs/fomo_all_20260607_102448/scene-1_s",
+      "metrics_saved": true
+    },
+    "scene-2": {
+      "status": "completed",
+      "run_name": "scene-2_s",
+      "output_dir": "runs/fomo_all_20260607_102448/scene-2_s",
+      "metrics_saved": true
+    },
+    "scene-3": {
+      "status": "completed",
+      "run_name": "scene-3_s",
+      "output_dir": "runs/fomo_all_20260607_102448/scene-3_s",
+      "metrics_saved": true
+    },
+    "top-down": {
+      "status": "completed",
+      "run_name": "top-down_s",
+      "output_dir": "runs/fomo_all_20260607_102448/top-down_s",
+      "metrics_saved": true
+    }
+  }
+}
