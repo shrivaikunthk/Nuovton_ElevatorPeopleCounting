@@ -3,7 +3,7 @@
 Documentation repository for the two models trained for the **Nuvoton
 M55M1 + Ethos-U55-256 NPU** overhead person-counting application.
 
-* **FOMO** (production) — a 6 x 6 grid heatmap detector. 100% NPU
+* **FOMO** (production) — a 6x6 grid heatmap detector. 100% NPU
   placement after Vela. 19.6 ms / inference. Test count MAE = 0.42
   people. **This is the model that runs on the board.**
 * **YOLOv8n-ReLU6** (reference) — full bounding-box detector. Higher
